@@ -1,19 +1,37 @@
-// 1. Import the initial variables
-@import "../node_modules/bulma/sass/utilities/initial-variables";
+@charset "utf-8";
 
-// 2. Set your own initial variables
-// Update the blue shade, used for links
-$blue: #06bcef;
-// Add pink and its invert
-$pink: #ff8080;
-$pink-invert: #fff;
-// Update the sans-serif font family
-$family-sans-serif: "Helvetica", "Arial", sans-serif;
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
-// 3. Set the derived variables
-// Use the new pink as the primary color
-$primary: $pink;
-$primary-invert: $pink-invert;
+// Set your brand colors
+$purple: #8A4D76;
+$pink: #FA7C91;
+$brown: #757763;
+$beige-light: #D0D1CD;
+$beige-lighter: #EFF0EB;
 
-// 4. Import the rest of Bulma
-@import "../node_modules/bulma/bulma";
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+$grey-dark: $brown;
+$grey-light: $beige-light;
+$primary: $purple;
+$link: $pink;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// Update some of Bulma's component variables
+$body-background-color: $beige-lighter;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+// Import only what you need from Bulma
+@import "../style/vendor/bulma/sass/utilities/_all.sass";
+@import "../style/vendor/bulma/sass/base/_all.sass";
+@import "../style/vendor/bulma/sass/elements/button.sass";
+@import "../style/vendor/bulma/sass/elements/container.sass";
+@import "../style/vendor/bulma/sass/elements/title.sass";
+@import "../style/vendor/bulma/sass/form/_all.sass";
+@import "../style/vendor/bulma/sass/components/navbar.sass";
+@import "../style/vendor/bulma/sass/layout/hero.sass";
+@import "../style/vendor/bulma/sass/layout/section.sass";
