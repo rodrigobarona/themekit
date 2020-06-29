@@ -15,24 +15,28 @@
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="/">Garden kit - Theme</a>
+    <a class="navbar-item" href="{{ routes.root_url }}">{{ shop.name }}</a>
+  
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
   </div>
-  
-<a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
-  <span aria-hidden="true"></span>
-  <span aria-hidden="true"></span>
-  <span aria-hidden="true"></span>
-</a>
-  
+
   <div class="navbar-menu" id="navMenu">
     <div class="navbar-start">
       {% for link in linklists.main-menu.links %}
         {% assign child_list_handle = link.title | handleize %}
         {% if linklists[child_list_handle].links != blank %}
-          <a href="{{ link.url }}"  class="navbar-item">{{ link.title }}</a>
-          [{% for childlink in linklists[child_list_handle].links %}
-            <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-          {% endfor %}]
+          <div class="navbar-item has-dropdown is-hoverable">
+             <a href="{{ link.url }}"  class="navbar-link">{{ link.title }}</a>
+          {% for childlink in linklists[child_list_handle].links %}
+            <div class="navbar-dropdown">
+            <a href="{{ childlink.url }}"  class="navbar-item">{{ childlink.title | escape }}</a>
+            </div>
+          </div>
+          {% endfor %}
         {% else %}
           <a href="{{ link.url }}"  class="navbar-item">{{ link.title }}</a>
         {% endif %}
