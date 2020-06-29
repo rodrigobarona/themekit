@@ -36,28 +36,13 @@
 		"sC": 3,
 		"tS": 0
 		},
-	"/assets/application.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"ec": 1,
-		"ft": 4,
-		"ma": 0,
+	"/assets/theme.scss.liquid": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
 		"oA": 0,
-		"oAP": "/assets/application.css",
-		"oF": 0,
-		"oS": 0,
-		"sct": 0
-		},
-	"/assets/theme.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/assets/theme-min.css",
-		"oF": 0,
-		"oS": 3
+		"oAP": "/assets/theme.scss.liquid",
+		"oF": 0
 		},
 	"/config.yml": {
 		"cB": 0,
@@ -134,7 +119,7 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "/assets/theme.css",
+		"oAP": "/assets/theme.scss.liquid",
 		"oF": 2,
 		"oS": 0,
 		"sct": 0
@@ -2629,7 +2614,7 @@
 			}
 		},
 	"esLintSourceType": 0,
-	"externalServerAddress": "http://localhost:8888",
+	"externalServerAddress": "https://gardenkit-portugal.myshopify.com/",
 	"gitIgnoreBuildFolder": 1,
 	"hideConfigFile": 0,
 	"jsCheckerReservedNamesString": "",
