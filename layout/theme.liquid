@@ -9,33 +9,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {{ content_for_header }} <!-- Header hook for plugins -->
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
-  {{ 'application.js' | asset_url | script_tag }}
+  {{ 'application-min.js' | asset_url | script_tag }}
 </head>
 <body>
 
-  {% for link in linklists.main-menu.links %}
-    {% assign child_list_handle = link.title | handleize %}
-    {% if linklists[child_list_handle].links != blank %}
-      <a href="{{ link.url }}">{{ link.title }}</a>
-      [{% for childlink in linklists[child_list_handle].links %}
-        <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-      {% endfor %}]
-    {% else %}
-      <a href="{{ link.url }}">{{ link.title }}</a>
-    {% endif %}
-  {% endfor %}
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">Garden kit - Theme</a>
+  </div>
+  
+<a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+  <span aria-hidden="true"></span>
+  <span aria-hidden="true"></span>
+  <span aria-hidden="true"></span>
+</a>
+  
+  <div class="navbar-menu" id="navMenu">
+    <div class="navbar-start">
+      {% for link in linklists.main-menu.links %}
+        {% assign child_list_handle = link.title | handleize %}
+        {% if linklists[child_list_handle].links != blank %}
+          <a href="{{ link.url }}"  class="navbar-item">{{ link.title }}</a>
+          [{% for childlink in linklists[child_list_handle].links %}
+            <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+          {% endfor %}]
+        {% else %}
+          <a href="{{ link.url }}"  class="navbar-item">{{ link.title }}</a>
+        {% endif %}
+      {% endfor %}
 
-  <a href="/cart">Cart</a>
+      <a href="/cart"  class="navbar-item">Cart</a>
+    </div>
 
-  {% if shop.customer_accounts_enabled %}
-    {% if customer %}
-      <a href="/account">account</a>
-      {{ 'log out'  | customer_logout_link }}
-    {% else %}
-      {{ 'log in ' | customer_login_link }}
-      {{ 'register' | customer_register_link }}
-    {% endif %}
-  {% endif %}
+    <div class="navbar-end">
+      {% if shop.customer_accounts_enabled %}
+        {% if customer %}
+          <a href="/account" class="navbar-item">account</a>
+          {{ 'log out'  | customer_logout_link }}
+        {% else %}
+          {{ 'log in ' | customer_login_link }}
+          {{ 'register' | customer_register_link }}
+        {% endif %}
+      {% endif %}
+    </div>
+
+</nav>
 
   <main role="main">
     {{ content_for_layout }}
